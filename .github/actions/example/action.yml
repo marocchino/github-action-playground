@@ -1,0 +1,12 @@
+name: 'Example'
+description: 'print 1 2 3'
+
+runs:
+  using: composite
+  steps:
+    - run: echo 1
+      shell: bash
+    - run: echo 2
+      shell: bash
+    - run: echo 3
+      shell: bash
