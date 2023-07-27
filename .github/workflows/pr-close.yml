@@ -1,0 +1,19 @@
+---
+name: pr-closed
+run-name: pr closed
+on:
+  pull_request:
+    types:
+      - closed
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: gh pr list --base ${{ github.ref_name }}
+      - run: echo "$DATA"
+        env:
+          DATA: ${{ toJson(github) }}
+      - run: echo "$DATA"
+        env:
+          DATA: ${{ toJson(inputs) }}
